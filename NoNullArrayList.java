@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.lang.IllegalArgumentException
+import java.lang.IllegalArgumentException;
 public class NoNullArrayList<T> extends ArrayList<T> {
   public NoNullArrayList(){
     super();
@@ -17,6 +17,12 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     if (element == null) {
       throw new IllegalArgumentException();
     }
-    super.add(index,element)
+    super.add(index,element);
+  }
+  public T set (int index, T element) {
+    if (element == null) {
+      throw new IllegalArgumentException();
+    }
+    return super.set(index,element);
   }
 }
