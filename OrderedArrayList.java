@@ -14,19 +14,18 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     while ((i<this.size()) && (this.get(i).compareTo(element) < 0)) {
       i++;
     }
-    super.add(index(element), element);
+    super.add(i, element);
     return true;
   }
   public void add(int index, T element) {
-    super.add(index(element),element);
+    add(element);
   }
   public T set(int index,T element) {
-    T a = get(index);
-    if (element == null) {
+    if (element == null){
       throw new IllegalArgumentException();
     }
-    super.remove(index);
-    super.add(index(element),element);
+    T a = this.remove(index);
+    add(element);
     return a;
   }
 }
